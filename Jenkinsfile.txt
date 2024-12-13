@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/vdespa/k6-sample-tests.git'
+            }
+        }
+
+        stage('k6') {
+            steps {
+                sh 'k6 run script.js --quiet'
+            }
+        }
+    }
+}
