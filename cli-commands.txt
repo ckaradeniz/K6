@@ -1,0 +1,11 @@
+k6 run script.js
+k6 run --http-debug="full" script.js
+k6 cloud login
+k6 cloud login --token 5a01de57ff02031419865066c5aebfbe13bc5bc70f35dfe32cfab5ce8df2a664
+k6 cloud first-script.js
+k6 run first-script.js -o cloud
+k6 run script.js —vus 1 —duration 10s —iterations 1
+k6 insecure-request.js --insecure-skip-tls-verify
+k6 run first-script.js —summary-export=summary.json
+k6 run first-script.js --out json=full_results.json
+echo $?
